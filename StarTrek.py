@@ -33,28 +33,32 @@ def main():
 		display_status() 
 		action = get_user_action() 
 
-	if action == "1": 
-		score += run_mission() 
-	elif action == "2": 
-		repair_system() 
-	elif action == "3": 
-		add_crew_member() 
-	elif action == "4": 
-		print(f"Simulation ended. Final score: {score}") break 
-	else: 
-		print("Invalid action. Please try again.") 
-		
-	turns += 1 
-	handle_random_event() 
+		if action == "1": 
+			score += run_mission() 
+		elif action == "2": 
+			repair_system() 
+		elif action == "3": 
+			add_crew_member() 
+		elif action == "4": 
+			print(f"Simulation ended. Final score: {score}") break 
+		else: 
+			print("Invalid action. Please try again.") 
+			
+		turns += 1 
+		handle_random_event() 
 
-	if turns % 3 == 0: 
-		replenish_resources() 
+		if turns % 3 == 0: 
+			replenish_resources() 
 
-def display_status(): 
+def display_status():
+	print("=== /n Ship Status ===" )
+	
 # TODO: Implement function to display ship status, resources, and crew 
 
 def get_user_action(): 
-# TODO: Implement function to get and return user's chosen action 
+	choice = input("Choose: \n 1 for run a mission \n 2 for repair system \n 3 for add crew member \n 4 to end simulation")
+	return choice
+	# TODO: Implement function to get and return user's chosen action 
 
 def run_mission(): 
 	mission_type = random.choice(MISSION_TYPES) 
